@@ -15,29 +15,38 @@
             <input type="text" id="result" name="answer" maxlength="10">
         </div> -->
         <form name="form1" class="card-body">
-            <input type="text" id="result" name="answer" maxlength="10">
-                <input type="button" class="btn" value="C" onclick="form4.answer.value = ' ' ">
-                <input type="button" class="btn" value="+/-">
-                <input type="button" class="btn" value="%">
-                <input type="button" class="btn btn-secondary" value="/">
-                <input type="button" class="btn" value="7" onclick="card-body".answeer.value += '7'">
-                <input type="button" class="btn" value="8">
-                <input type="button" class="btn" value="9">
-                <input type="button" class="btn btn-secondary" value="X">
-                <input type="button" class="btn" value="4" onclick="form4.answer.value += '4' ">
-                <input type="button" class="btn" value="5">
-                <input type="button" class="btn" value="6">
-                <input type="button" class="btn btn-secondary" value="-">
+            <input type="text" id="result" name="answer" maxlength="10" readonly>
+                <input type="button" class="btn" value="C" onclick="form1.answer.value = ' ' ">
+                <input type="button" class="btn" value="+/-" onclick="form1.answer.value += 'Error...' ">
+                <input type="button" class="btn" value="%" onclick="form1.answer.value += '%' ">
+                <input type="button" class="btn btn-secondary" value="/" onclick="form1.answer.value += '/' ">
+                <input type="button" class="btn" value="7" onclick="form1.answer.value += '7' ">
+                <input type="button" class="btn" value="8" onclick="form1.answer.value += '8' ">
+                <input type="button" class="btn" value="9" onclick="form1.answer.value += '9' ">
+                <input type="button" class="btn btn-secondary" value="X" onclick="form1.answer.value += '*' ">
+                <input type="button" class="btn" value="4" onclick="form1.answer.value += '4' ">
+                <input type="button" class="btn" value="5" onclick="form1.answer.value += '5' ">
+                <input type="button" class="btn" value="6" onclick="form1.answer.value += '6' ">
+                <input type="button" class="btn btn-secondary" value="-" onclick="form1.answer.value += '-' ">
                 <input type = "button" class="btn" value = "1" onclick = "form1.answer.value += '1' ">
-                <input type="button" class="btn" value="2">
-                <input type="button" class="btn" value="3">
-                <input type="button" class="btn btn-secondary" value="+">
-                <input type="button" class="btn" value="0">
-                <input type="button" class="btn" value=".">
-                <input type="button" class="btn" value="DEL">
-                <input type="button" class="btn btn" style="background-color: orange;" value="=">
+                <input type="button" class="btn" value="2" onclick="form1.answer.value += '2' ">
+                <input type="button" class="btn" value="3" onclick="form1.answer.value += '3' ">
+                <input type="button" class="btn btn-secondary" value="+" onclick="form1.answer.value += '+' ">
+                <input type="button" class="btn" value="0" onclick="form1.answer.value += '0' ">
+                <input type="button" class="btn" value="." onclick="form1.answer.value += '.' ">
+                <input type="button" class="btn" value="DEL" onclick="form1.answer.value += 'Error...' ">
+                <input type="button" class="btn" style="background-color: orange;" id="enter-key" name="enter-key" value="=" onclick = "form1.answer.value = eval(form1.answer.value) ">
         </form>
     </div>
-    
+<script>
+     let screen = document.getElementById('result')
+     screen.readOnly = true;
+    let enter = document.getElementById('enter-key')
+    enter.addEventListener('keypress',function(e){
+        if(e.key === 'Enter'){
+            screen.value = eval(form1.answer.value)
+        }
+    })
+</script>    
 </body>
 </html>
